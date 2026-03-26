@@ -1,2 +1,43 @@
-# nusmods-mcp
-An MCP server for NUSMods.
+# NUSMods MCP Server
+
+A [Model Context Protocol](https://modelcontextprotocol.io) server for searching and querying module information from the [NUSMods API](https://api.nusmods.com/v2/).
+
+## Tools
+
+| Tool | Description |
+|------|-------------|
+| `get_module` | Get detailed module info - description, credits, prerequisites, preclusions, workload, semesters, exam dates |
+| `search_modules` | Search modules by keyword across codes and titles |
+
+## Prompts
+
+| Prompt | Description |
+|--------|-------------|
+| `plan_semester` | Structured semester planning - checks prerequisites, workload, and exam conflicts for a set of modules |
+
+## Resources
+
+| URI | Description |
+|-----|-------------|
+| `nusmods://server/info` | Server capabilities, current academic year, module code format reference |
+
+## Development
+
+```bash
+git clone https://github.com/shawnnygoh/nusmods-mcp.git
+cd nusmods-mcp
+pip install -r requirements.txt
+
+# Inspect server components
+fastmcp inspect server.py
+
+# Run locally with HTTP transport
+fastmcp run server.py --transport http
+
+# Test with MCP Inspector
+npx @modelcontextprotocol/inspector
+```
+
+## License
+
+MIT
