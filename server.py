@@ -59,6 +59,7 @@ mcp = FastMCP(
 
 # Tools
 
+
 @mcp.tool(
     description=(
         "Get detailed information about a specific NUS module including "
@@ -140,13 +141,13 @@ async def search_modules(
     results = [
         m
         for m in modules
-        if q in m.get("moduleCode", "").upper()
-        or q in m.get("title", "").upper()
+        if q in m.get("moduleCode", "").upper() or q in m.get("title", "").upper()
     ]
     return results[:limit]
 
 
 # Resources
+
 
 @mcp.resource(
     "nusmods://server/info",
@@ -173,6 +174,7 @@ async def server_info() -> dict:
 
 
 # Prompts
+
 
 @mcp.prompt(
     description=(
@@ -205,5 +207,10 @@ def plan_semester(
     )
 
 
-if __name__ == "__main__":
+def main() -> None:
+    """Entrypoint to run the NUSMods MCP server."""
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
